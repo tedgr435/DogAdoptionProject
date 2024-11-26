@@ -8,6 +8,10 @@
         public string Email { get; set; }
         public int Level { get; set; } = 0;
 
+        public int applicationNumber { get; set; }
+        public int dogNumber { get; set; }
+
+
         public User() { }
 
     }
