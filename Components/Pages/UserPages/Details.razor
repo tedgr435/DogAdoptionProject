@@ -1,0 +1,60 @@
+﻿@page "/users/details"
+@using Microsoft.EntityFrameworkCore
+@using DogAdoptionProject.Models
+@inject IDbContextFactory<DogAdoptionProject.Data.DogAdoptionProjectContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>User</h2>
+    <hr />
+    @if (user is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">Username</dt>
+            <dd class="col-sm-10">@user.Username</dd>
+            <dt class="col-sm-2">Password</dt>
+            <dd class="col-sm-10">@user.Password</dd>
+            <dt class="col-sm-2">Email</dt>
+            <dd class="col-sm-10">@user.Email</dd>
+            <dt class="col-sm-2">Level</dt>
+            <dd class="col-sm-10">@user.Level</dd>
+            <dt class="col-sm-2">applicationNumber</dt>
+            <dd class="col-sm-10">@user.applicationNumber</dd>
+            <dt class="col-sm-2">dogNumber</dt>
+            <dd class="col-sm-10">@user.dogNumber</dd>
+            <dt class="col-sm-2">currentAppId</dt>
+            <dd class="col-sm-10">@user.currentAppId</dd>
+            <dt class="col-sm-2">currentDogId</dt>
+            <dd class="col-sm-10">@user.currentDogId</dd>
+        </dl>
+        <div>
+            <a href="@($"/users/edit?id={user.Id}")">Edit</a> |
+            <a href="@($"/users")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private User? user;
+
+    [SupplyParameterFromQuery]
+    private int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        user = await context.User.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (user is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}
