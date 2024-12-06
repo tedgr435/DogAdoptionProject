@@ -1,0 +1,28 @@
+﻿@page "/exampleform"
+@inject ILogger<ExampleForm> Logger
+
+<EditForm Model="Model" OnSubmit="Submit" FormName="ExampleForm">
+    <div>
+        <label>
+            Identifier:
+            <InputText @bind-Value="Model!.Id" />
+        </label>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</EditForm>
+
+@code {
+    [SupplyParameterFromForm]
+    private ExampleForms? Model { get; set; }
+
+    protected override void OnInitialized() => Model ??= new();
+
+    private void Submit() => Logger.LogInformation("Id = {Id}", Model?.Id);
+
+    public class ExampleForms
+    {
+        public string? Id { get; set; }
+    }
+}
