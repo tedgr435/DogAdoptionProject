@@ -1,4 +1,5 @@
 ﻿@page "/dogs"
+@rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using DogAdoptionProject.Models
@@ -9,13 +10,16 @@
 <PageTitle>Index</PageTitle>
 
 <h1>Index</h1>
-
+<p>
+    <input type="search" @bind="NameFilter" @bind:event="oninput" />
+</p>
 <p>
     <a href="dogs/create">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Dog">
-    <PropertyColumn Property="dog => dog.Name" />
+<QuickGrid Class="table" Items="FilteredDogs" Pagination="pagination">
+    <Paginator State="pagination" />
+    <PropertyColumn Property="dog => dog.Name" Sortable="true" />
     <PropertyColumn Property="dog => dog.Description" />
     <PropertyColumn Property="dog => dog.Status" />
     <PropertyColumn Property="dog => dog.Type" />
@@ -29,6 +33,16 @@
 
 @code {
     private DogAdoptionProjectContext context = default!;
+
+    private PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
+
+    [SupplyParameterFromQuery]
+    private string? NameFilter { get; set; }
+
+    private IQueryable<Dog> FilteredDogs =>
+        context.Dog.Where(m => m.Name!.Contains(NameFilter ?? string.Empty));
+
+
 
     protected override void OnInitialized()
     {
