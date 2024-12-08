@@ -3,6 +3,11 @@ using System.Configuration;
 
 namespace DogAdoptionProject.Models
 {
+    /*
+     * public enum UserRole {
+     * Guest, Adopter, Administrator, ShelterManager
+     * }
+     */
     public class User
     {
         public int Id { get; set; }
@@ -15,6 +20,8 @@ namespace DogAdoptionProject.Models
         [Required]
         [StringLength(60, MinimumLength = 3)]
         public string? Email { get; set; }
+
+        //public UserRole Role { get; set; } = UserRole.Guest; 
         public int? Level { get; set; } = 0;
 
         public int? applicationNumber { get; set; }

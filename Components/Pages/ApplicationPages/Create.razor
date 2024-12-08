@@ -69,6 +69,6 @@
         using var context = DbFactory.CreateDbContext();
         context.Application.Add(Application);
         await context.SaveChangesAsync();
-        NavigationManager.NavigateTo("/applications");
+        NavigationManager.NavigateTo("/home1");
     }
 }

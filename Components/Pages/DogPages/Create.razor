@@ -54,6 +54,6 @@
         using var context = DbFactory.CreateDbContext();
         context.Dog.Add(Dog);
         await context.SaveChangesAsync();
-        NavigationManager.NavigateTo("/dogs");
+        NavigationManager.NavigateTo("/home1");
     }
 }

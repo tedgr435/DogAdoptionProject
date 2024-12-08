@@ -18,6 +18,7 @@ namespace DogAdoptionProject.Models
         [Required]
         [StringLength(60, MinimumLength = 3)]
         public string? Type { get; set; }
+        //public string? pictureUrl { get; set; }
         public Dog() { }
 
     }
