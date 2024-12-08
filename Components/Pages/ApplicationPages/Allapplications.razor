@@ -10,7 +10,7 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Our Applications</h1>
+<h1>Approved Applications</h1>
 
 
 <QuickGrid Class="table" Items="myList.AsQueryable()">
@@ -52,6 +52,7 @@
                      from item3 in context.User
                      where item.userId == item3.Id
                      where item.dogId == item2.Id
+                     where item.Status == "Approved"
                      select new { item.Id, item.dogId, item2.Name, item.userId, 
                         item3.dogNumber  };
 

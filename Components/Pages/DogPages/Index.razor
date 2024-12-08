@@ -10,15 +10,27 @@
 <PageTitle>Index</PageTitle>
 
 <h1>Index</h1>
-<p>
-    <input type="search" @bind="NameFilter" @bind:event="oninput" />
-</p>
+<form class="d-flex" role="search">
+
+    <input class="form-control me-2" type="search" placeholder="Search"
+           aria-label="Search" @bind="NameFilter" @bind:event="oninput">
+
+    <button class="btn btn-outline-success text-nowrap" type="submit">
+
+        <i class="bi bi-search"></i> Search
+
+    </button>
+
+</form>
 <p>
     <a href="dogs/create">Create New</a>
 </p>
 
 <QuickGrid Class="table" Items="FilteredDogs" Pagination="pagination">
     <Paginator State="pagination" />
+    <TemplateColumn Context="dog">
+        <img src="images/@dog.Description" alt="@dog.Description" style="width:100px; height:100px" />
+    </TemplateColumn>
     <PropertyColumn Property="dog => dog.Name" Sortable="true" />
     <PropertyColumn Property="dog => dog.Description" />
     <PropertyColumn Property="dog => dog.Status" />
