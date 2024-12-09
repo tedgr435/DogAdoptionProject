@@ -16,7 +16,8 @@
     {
         <p><em>Loading...</em></p>
     }
-    else {
+    else
+    {
         <dl class="row">
             <dt class="col-sm-2">Username</dt>
             <dd class="col-sm-10">@user.Username</dd>
@@ -32,6 +33,22 @@
         <dl class="row">
             <dt class="col-sm-2">Level</dt>
             <dd class="col-sm-10">@user.Level</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">applicationNumber</dt>
+            <dd class="col-sm-10">@user.applicationNumber</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">dogNumber</dt>
+            <dd class="col-sm-10">@user.dogNumber</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">currentAppId</dt>
+            <dd class="col-sm-10">@user.currentAppId</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">currentDogId</dt>
+            <dd class="col-sm-10">@user.currentDogId</dd>
         </dl>
         <EditForm method="post" Model="user" OnValidSubmit="DeleteUser" FormName="delete" Enhance>
             <button type="submit" class="btn btn-danger" disabled="@(user is null)">Delete</button> |
