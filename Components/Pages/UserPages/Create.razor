@@ -14,34 +14,54 @@
     <div class="col-md-4">
         <EditForm method="post" Model="User" OnValidSubmit="AddUser" FormName="create" Enhance>
             <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert"/>
+            <ValidationSummary class="text-danger" role="alert" />
             <div class="mb-3">
-                <label for="username" class="form-label">Username:</label> 
-                <InputText id="username" @bind-Value="User.Username" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => User.Username" class="text-danger" /> 
-            </div>        
+                <label for="username" class="form-label">Username:</label>
+                <InputText id="username" @bind-Value="User.Username" class="form-control" />
+                <ValidationMessage For="() => User.Username" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password:</label> 
-                <InputText id="password" @bind-Value="User.Password" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => User.Password" class="text-danger" /> 
-            </div>        
+                <label for="password" class="form-label">Password:</label>
+                <InputText id="password" @bind-Value="User.Password" class="form-control" />
+                <ValidationMessage For="() => User.Password" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email:</label> 
-                <InputText id="email" @bind-Value="User.Email" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => User.Email" class="text-danger" /> 
-            </div>        
+                <label for="email" class="form-label">Email:</label>
+                <InputText id="email" @bind-Value="User.Email" class="form-control" />
+                <ValidationMessage For="() => User.Email" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="level" class="form-label">Level:</label> 
-                <InputNumber id="level" @bind-Value="User.Level" class="form-control" /> 
-                <ValidationMessage For="() => User.Level" class="text-danger" /> 
-            </div>        
+                <label for="level" class="form-label">Level:</label>
+                <InputNumber id="level" @bind-Value="User.Level" class="form-control" />
+                <ValidationMessage For="() => User.Level" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="applicationnumber" class="form-label">applicationNumber:</label>
+                <InputNumber id="applicationnumber" @bind-Value="User.applicationNumber" class="form-control" />
+                <ValidationMessage For="() => User.applicationNumber" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="dognumber" class="form-label">dogNumber:</label>
+                <InputNumber id="dognumber" @bind-Value="User.dogNumber" class="form-control" />
+                <ValidationMessage For="() => User.dogNumber" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="currentappid" class="form-label">currentAppId:</label>
+                <InputNumber id="currentappid" @bind-Value="User.currentAppId" class="form-control" />
+                <ValidationMessage For="() => User.currentAppId" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="currentdogid" class="form-label">currentDogId:</label>
+                <InputNumber id="currentdogid" @bind-Value="User.currentDogId" class="form-control" />
+                <ValidationMessage For="() => User.currentDogId" class="text-danger" />
+            </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>
 </div>
 
 <div>
-    <a href="/users">Back to List</a>
+    <a href="/">Back to Home</a>
 </div>
 
 @code {
