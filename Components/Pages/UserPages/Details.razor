@@ -15,7 +15,8 @@
     {
         <p><em>Loading...</em></p>
     }
-    else {
+    else
+    {
         <dl class="row">
             <dt class="col-sm-2">Username</dt>
             <dd class="col-sm-10">@user.Username</dd>
@@ -25,6 +26,14 @@
             <dd class="col-sm-10">@user.Email</dd>
             <dt class="col-sm-2">Level</dt>
             <dd class="col-sm-10">@user.Level</dd>
+            <dt class="col-sm-2">applicationNumber</dt>
+            <dd class="col-sm-10">@user.applicationNumber</dd>
+            <dt class="col-sm-2">dogNumber</dt>
+            <dd class="col-sm-10">@user.dogNumber</dd>
+            <dt class="col-sm-2">currentAppId</dt>
+            <dd class="col-sm-10">@user.currentAppId</dd>
+            <dt class="col-sm-2">currentDogId</dt>
+            <dd class="col-sm-10">@user.currentDogId</dd>
         </dl>
         <div>
             <a href="@($"/users/edit?id={user.Id}")">Edit</a> |
