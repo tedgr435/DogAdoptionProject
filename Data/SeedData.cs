@@ -169,7 +169,7 @@ namespace DogAdoptionProject.Data
                     Status = "Approved",
                     House = "Large",
                     Name = "Roger",
-                    Description = "",
+                    Description = "Home visit",
                     Dependents = "",
                 },
                new Models.Application
