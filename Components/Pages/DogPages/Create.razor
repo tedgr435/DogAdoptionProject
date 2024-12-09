@@ -14,32 +14,27 @@
     <div class="col-md-4">
         <EditForm method="post" Model="Dog" OnValidSubmit="AddDog" FormName="create" Enhance>
             <DataAnnotationsValidator />
-            <ValidationSummary class="text-danger" role="alert"/>
+            <ValidationSummary class="text-danger" role="alert" />
             <div class="mb-3">
-                <label for="name" class="form-label">Name:</label> 
-                <InputText id="name" @bind-Value="Dog.Name" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => Dog.Name" class="text-danger" /> 
-            </div>        
+                <label for="name" class="form-label">Name:</label>
+                <InputText id="name" @bind-Value="Dog.Name" class="form-control" />
+                <ValidationMessage For="() => Dog.Name" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="pictureurl" class="form-label">pictureUrl:</label> 
-                <InputText id="pictureurl" @bind-Value="Dog.pictureUrl" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => Dog.pictureUrl" class="text-danger" /> 
-            </div>        
+                <label for="description" class="form-label">Description:</label>
+                <InputText id="description" @bind-Value="Dog.Description" class="form-control" />
+                <ValidationMessage For="() => Dog.Description" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Description:</label> 
-                <InputText id="description" @bind-Value="Dog.Description" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => Dog.Description" class="text-danger" /> 
-            </div>        
+                <label for="status" class="form-label">Status:</label>
+                <InputText id="status" @bind-Value="Dog.Status" class="form-control" />
+                <ValidationMessage For="() => Dog.Status" class="text-danger" />
+            </div>
             <div class="mb-3">
-                <label for="status" class="form-label">Status:</label> 
-                <InputText id="status" @bind-Value="Dog.Status" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => Dog.Status" class="text-danger" /> 
-            </div>        
-            <div class="mb-3">
-                <label for="type" class="form-label">Type:</label> 
-                <InputText id="type" @bind-Value="Dog.Type" class="form-control" aria-required="true"/> 
-                <ValidationMessage For="() => Dog.Type" class="text-danger" /> 
-            </div>        
+                <label for="type" class="form-label">Type:</label>
+                <InputText id="type" @bind-Value="Dog.Type" class="form-control" />
+                <ValidationMessage For="() => Dog.Type" class="text-danger" />
+            </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>
@@ -59,6 +54,6 @@
         using var context = DbFactory.CreateDbContext();
         context.Dog.Add(Dog);
         await context.SaveChangesAsync();
-        NavigationManager.NavigateTo("/dogs");
+        NavigationManager.NavigateTo("/home1");
     }
 }
