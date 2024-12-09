@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inject IJSRuntime JsRuntime;
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -35,7 +36,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="/home1">Not Logged In</a>
+                    <a class="nav-link" href="#">Guest User</a>
 
                 </li>
 
@@ -62,6 +63,9 @@
         </div>
 
     </nav>
+
+
+
 
     <div id="mycarousel" class="carousel slide" data-bs-ride="carousel"> </div>
     <div id="mycarousel" class="carousel slide" data-bs-ride="carousel"> </div>
@@ -100,11 +104,13 @@
                     </div>
 
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#mycarousel" data-bs-slide="prev">
+                <button id="carouselExampleIndicators-prev"
+                    class="carousel-control-prev" type="button" data-bs-target="#mycarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#mycarousel" data-bs-slide="next">
+                <button id="carouselExampleIndicators-next"
+                    class="carousel-control-next" type="button" data-bs-target="#mycarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -112,7 +118,20 @@
 
 
             </div>
-
+            
 
 </body>
 </html>
+@functions {
+    int currentCount = 0;
+    bool firstRender = true;
+
+    protected async Task OnAfterRenderAsync()
+    {
+        if (firstRender)
+        {
+            await JsRuntime.InvokeAsync<object>("initializeCarousel");
+            firstRender = false;
+        }
+    }
+}
