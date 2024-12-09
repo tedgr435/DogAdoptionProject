@@ -1,0 +1,71 @@
+﻿@page "/applications/homecreate"
+@using Microsoft.EntityFrameworkCore
+@using DogAdoptionProject.Models
+@inject IDbContextFactory<DogAdoptionProject.Data.DogAdoptionProjectContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Home Application</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Application" OnValidSubmit="AddApplication" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <div class="mb-3">
+                <label for="dogid" class="form-label">dogId:</label>
+                <InputNumber id="dogid" @bind-Value="Application.dogId" class="form-control" />
+                <ValidationMessage For="() => Application.dogId" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="userid" class="form-label">userId:</label>
+                <InputNumber id="userid" @bind-Value="Application.userId" class="form-control" />
+                <ValidationMessage For="() => Application.userId" class="text-danger" />
+            </div>
+            
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <InputText id="name" @bind-Value="Application.Name" class="form-control" />
+                <ValidationMessage For="() => Application.Name" class="text-danger" />
+            </div>
+           
+            <div class="mb-3">
+                <label for="house" class="form-label">House:</label>
+                <InputText id="house" @bind-Value="Application.House" class="form-control" />
+                <ValidationMessage For="() => Application.House" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="dependents" class="form-label">Dependents:</label>
+                <InputText id="dependents" @bind-Value="Application.Dependents" class="form-control" />
+                <ValidationMessage For="() => Application.Dependents" class="text-danger" />
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/home1">Back to Home</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Application Application { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddApplication()
+    {
+        Application.Description = "Home visit";
+        Application.Status = "Pending";
+        using var context = DbFactory.CreateDbContext();
+        context.Application.Add(Application);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/home1");
+    }
+    //// <summary>
+    ///
+    /// </summary>
+}
