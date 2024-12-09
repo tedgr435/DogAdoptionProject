@@ -18,7 +18,7 @@
     <PropertyColumn Property="application => application.dogId" />
     <PropertyColumn Property="application => application.Name" />
     <PropertyColumn Property="application => application.userId" />
-    <PropertyColumn Property="application => application.dogNumber" />
+    <PropertyColumn Property="application => application.Username" />
 
 </QuickGrid>
 
@@ -39,7 +39,7 @@
         public int? dogId { get; set; }
         public string? Name { get; set; }
         public int? userId { get; set; }
-        public int? dogNumber { get; set; }
+        public string? Username { get; set; }
 
     }
     private DogAdoptionProjectContext context = default!;
@@ -65,7 +65,7 @@
                          item.dogId,
                          item2.Name,
                          item.userId,
-                         item3.dogNumber
+                         item3.Username
                      };
 
 
@@ -79,7 +79,7 @@
             tempApplication.dogId = x.dogId;
             tempApplication.Name = x.Name;
             tempApplication.userId = x.userId;
-            tempApplication.dogNumber = x.dogNumber;
+            tempApplication.Username = x.Username;
 
             myList.Add(tempApplication);
         }

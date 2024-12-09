@@ -33,10 +33,6 @@
     <PropertyColumn Property="user => user.Password" />
     <PropertyColumn Property="user => user.Email" />
     <PropertyColumn Property="user => user.Level" />
-    <PropertyColumn Property="user => user.applicationNumber" />
-    <PropertyColumn Property="user => user.dogNumber" />
-    <PropertyColumn Property="user => user.currentAppId" />
-    <PropertyColumn Property="user => user.currentDogId" />
 
     <TemplateColumn Context="user">
         <a href="@($"users/edit?id={user.Id}")">Edit</a> |

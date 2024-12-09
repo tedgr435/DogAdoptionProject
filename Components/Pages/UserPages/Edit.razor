@@ -42,26 +42,7 @@ else
                     <InputNumber id="level" @bind-Value="User.Level" class="form-control" />
                     <ValidationMessage For="() => User.Level" class="text-danger" />
                 </div>
-                <div class="mb-3">
-                    <label for="applicationnumber" class="form-label">applicationNumber:</label>
-                    <InputNumber id="applicationnumber" @bind-Value="User.applicationNumber" class="form-control" />
-                    <ValidationMessage For="() => User.applicationNumber" class="text-danger" />
-                </div>
-                <div class="mb-3">
-                    <label for="dognumber" class="form-label">dogNumber:</label>
-                    <InputNumber id="dognumber" @bind-Value="User.dogNumber" class="form-control" />
-                    <ValidationMessage For="() => User.dogNumber" class="text-danger" />
-                </div>
-                <div class="mb-3">
-                    <label for="currentappid" class="form-label">currentAppId:</label>
-                    <InputNumber id="currentappid" @bind-Value="User.currentAppId" class="form-control" />
-                    <ValidationMessage For="() => User.currentAppId" class="text-danger" />
-                </div>
-                <div class="mb-3">
-                    <label for="currentdogid" class="form-label">currentDogId:</label>
-                    <InputNumber id="currentdogid" @bind-Value="User.currentDogId" class="form-control" />
-                    <ValidationMessage For="() => User.currentDogId" class="text-danger" />
-                </div>
+                
                 <button type="submit" class="btn btn-primary">Save</button>
             </EditForm>
         </div>
