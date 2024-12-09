@@ -1,11 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DogAdoptionProject.Models
 {
     public class Application
     {
         public int Id { get; set; }
+        [ForeignKey("Dog")]
         public int? dogId { get; set; }
+        [ForeignKey("User")]
         public int? userId { get; set; }
         [Required]
         [StringLength(60, MinimumLength = 3)]

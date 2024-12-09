@@ -11,6 +11,9 @@ namespace DogAdoptionProject.Models
         public string? Name { get; set; }
         [Required]
         [StringLength(60, MinimumLength = 3)]
+        public string? pictureUrl { get; set; }
+        [Required]
+        [StringLength(60, MinimumLength = 3)]
         public string? Description { get; set; }
         [Required]
         [StringLength(60, MinimumLength = 3)]
@@ -18,7 +21,7 @@ namespace DogAdoptionProject.Models
         [Required]
         [StringLength(60, MinimumLength = 3)]
         public string? Type { get; set; }
-        //public string? pictureUrl { get; set; }
+        
         public Dog() { }
 
     }
