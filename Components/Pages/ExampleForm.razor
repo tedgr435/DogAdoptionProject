@@ -1,7 +1,13 @@
 ﻿@page "/exampleform"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using DogAdoptionProject.Models
+@using DogAdoptionProject.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<DogAdoptionProject.Data.DogAdoptionProjectContext> DbFactory
 @inject ILogger<ExampleForm> Logger
 
-<EditForm Model="Model" OnSubmit="Submit" FormName="ExampleForm">
+<EditForm Model="Model" OnSubmit="Submit" FormName="Dog">
     <div>
         <label>
             Identifier:
@@ -16,16 +22,20 @@
 
 
 @code {
+    private DogAdoptionProjectContext context = default!;
+
     [SupplyParameterFromForm]
-    private ExampleForms? Model { get; set; }
+    private Dog? Model { get; set; }
 
     protected override void OnInitialized() => Model ??= new();
     
 
     private void Submit() => Logger.LogInformation("Id = {Id}", Model?.Id);
 
-    public class ExampleForms
+    public class Dog
     {
         public string? Id { get; set; }
     }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
 }

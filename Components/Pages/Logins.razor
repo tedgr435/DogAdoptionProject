@@ -1,0 +1,81 @@
+﻿@code{
+    /*
+         * @page "/login"
+    @using Microsoft.EntityFrameworkCore
+    @using Microsoft.AspNetCore.Components.QuickGrid
+    @using DogAdoptionProject.Models
+    @using DogAdoptionProject.Data
+    @implements IAsyncDisposable
+    @inject IDbContextFactory<DogAdoptionProject.Data.DogAdoptionProjectContext> DbFactory
+
+    <PageTitle>Log In</PageTitle>
+    <form class="d-flex" role="search">
+
+    <input class="form-control me-2" type="search" placeholder="Search"
+    aria-label="Search" @bind="userid" @bind:event="oninput">
+
+    <button class="btn btn-outline-success text-nowrap" type="submit">
+
+        <i class="bi bi-search"></i> Search
+
+        </button>
+
+    </form>
+
+    <EditForm method="post" Model="User" OnValidSubmit="checkUsername" FormName="create" Enhance>
+    <DataAnnotationsValidator />
+    <ValidationSummary class="text-danger" role="alert" />
+    <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <InputText id="username" @bind-Value="unname" class="form-control" />
+        <ValidationMessage For="() => uname" class="text-danger" />
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <InputText id="password" @bind-Value="upassword" class="form-control" />
+        <ValidationMessage For="() => upassword" class="text-danger" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    </EditForm>
+    @code {
+    private DogAdoptionProjectContext context = default!;
+
+
+    public string? userid;
+    [SupplyParameterFromForm]
+    public string? uname;
+    [SupplyParameterFromForm]
+    public string? upassword;
+
+    public List<User> myUsers;
+
+    protected override void OnInitialized()
+        {
+        context = DbFactory.CreateDbContext();
+        myUsers = context.User.ToList();
+    }
+
+    protected bool checkUsername(string uname, string pword)
+        {
+        bool result = false;
+        foreach(var item in myUsers)
+            {
+            if (item.Username == uname && item.Password == pword)
+                {
+                result = true;
+                //NavigationManager.NavigateTo("/home1");
+        }
+        }
+    return result;
+
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+     }
+
+     *
+         *
+    */
+
+
+}
