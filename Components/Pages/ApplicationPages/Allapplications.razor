@@ -30,7 +30,7 @@
 
 @code {
 
-    
+
     //Create MyApplication struct, to work with a new object/record
 
     struct MyApplication
@@ -58,11 +58,11 @@
                      from item2 in context.Dog
                      from item3 in context.User
                      where item.userId == item3.Id && item.dogId == item2.Id
-                     //where item.Status == "Approved"
+                     where item.Status == "Approved"
                      select new { item.Id, item.dogId, item2.Name, item.userId, 
-                        item3.dogNumber  };
+                         item3.dogNumber  };
 
-
+        
         //Create a new MyApplication, assign data from the result object to the //tempApplication object. Add MyApplication object to myList.
 
         foreach (var x in result)

@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using DogAdoptionProject.Models;
+using static System.Net.Mime.MediaTypeNames;
 namespace DogAdoptionProject.Data
 {
     public class SeedData
@@ -22,16 +23,20 @@ namespace DogAdoptionProject.Data
                 return;
             }
 
+
+
             context.User.AddRange(
                 new User
                 {
+                    //Id = 1,
                     Username = "Anne",
                     Password = "password",
                     Email = "123@abc.com",
-                    Level = 1, 
+                    Level = 1,
                 },
                new User
                {
+                   //Id = 2,
                    Username = "Simone",
                    Password = "password",
                    Email = "123@abc.com",
@@ -39,6 +44,7 @@ namespace DogAdoptionProject.Data
                },
                 new User
                 {
+                    //Id = 3,
                     Username = "Ken",
                     Password = "password",
                     Email = "123@abc.com",
@@ -46,6 +52,7 @@ namespace DogAdoptionProject.Data
                 },
                  new User
                  {
+                     //Id = 4,
                      Username = "Dalton",
                      Password = "password",
                      Email = "123@abc.com",
@@ -65,10 +72,11 @@ namespace DogAdoptionProject.Data
                 return;
             }
 
+            
             context.Dog.AddRange(
                 new Dog
                 {
-
+                    //Id = 1,
                     Name = "Anne",
                     Description = "Dog1.jpg",
                     Status = "Available",
@@ -76,7 +84,7 @@ namespace DogAdoptionProject.Data
                 },
                new Dog
                {
-
+                   //Id = 2,
                    Name = "Ted",
                    Description = "Dog2.jpg",
                    Status = "Available",
@@ -84,7 +92,7 @@ namespace DogAdoptionProject.Data
                },
                 new Dog
                 {
-
+                    //Id = 3,
                     Name = "Max",
                     Description = "Dog3.jpg",
                     Status = "Available",
@@ -92,7 +100,7 @@ namespace DogAdoptionProject.Data
                 },
                  new Dog
                  {
-
+                     //Id = 4,
                      Name = "Spot",
                      Description = "Dog4.jpg",
                      Status = "Available",
@@ -100,7 +108,7 @@ namespace DogAdoptionProject.Data
                  },
                  new Dog
                  {
-
+                     //Id = 5,
                      Name = "Fido",
                      Description = "Dog5.jpg",
                      Status = "Available",
@@ -108,7 +116,7 @@ namespace DogAdoptionProject.Data
                  },
                  new Dog
                  {
-
+                     //Id = 6,
                      Name = "Ace",
                      Description = "Dog6.jpg",
                      Status = "Available",
@@ -116,7 +124,7 @@ namespace DogAdoptionProject.Data
                  },
                  new Dog
                  {
-
+                     //Id = 7,
                      Name = "Minnie",
                      Description = "Dog7.jpg",
                      Status = "Available",
@@ -124,14 +132,16 @@ namespace DogAdoptionProject.Data
                  },
                  new Dog
                  {
-
+                     //Id = 8,
                      Name = "Max",
                      Description = "Dog8.jpg",
                      Status = "Available",
                      Type = "Pug",
                  });
 
-            //Seed Applications
+            //Seed Applications        
+
+
             if (context == null || context.Application == null)
             {
                 throw new NullReferenceException(
@@ -144,40 +154,40 @@ namespace DogAdoptionProject.Data
             }
 
             context.Application.AddRange(
-                new Application
+                new Models.Application
                 {
-                    dogId = 1,
-                    userId = 1,
+                    dogId = 49,
+                    userId = 27,
                     Status = "Approved",
                     House = "Large",
                     Name = "Roger",
                     Description = "",
                     Dependents = "",
                 },
-               new Application
+               new Models.Application
                {
-                   dogId = 2,
-                   userId = 2,
+                   dogId = 50,
+                   userId = 28,
                    Status = "Pending",
                    House = "Large",
                    Name = "Ales",
                    Description = "",
                    Dependents = "",
                },
-                new Application
+                new Models.Application
                 {
-                    dogId = 3,
-                    userId = 3,
+                    dogId = 51,
+                    userId = 29,
                     Status = "Approved",
                     House = "Large",
                     Name = "Mane",
                     Description = "",
                     Dependents = "",
                 },
-                 new Application
+                 new Models.Application
                  {
-                     dogId = 3,
-                     userId = 4,
+                     dogId = 51,
+                     userId = 30,
                      Status = "Rejected",
                      House = "Large",
                      Name = "Richard",

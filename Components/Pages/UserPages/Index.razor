@@ -29,6 +29,7 @@
 <QuickGrid Class="table" Items="FilteredUsers" Pagination="pagination">
     <Paginator State="pagination" />
     <PropertyColumn Property="user => user.Username" Sortable="true" />
+    <PropertyColumn Property="user => user.Id" />
     <PropertyColumn Property="user => user.Password" />
     <PropertyColumn Property="user => user.Email" />
     <PropertyColumn Property="user => user.Level" />
