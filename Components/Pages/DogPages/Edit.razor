@@ -28,6 +28,11 @@ else
                     <ValidationMessage For="() => Dog.Name" class="text-danger" />
                 </div>
                 <div class="mb-3">
+                    <label for="description" class="form-label">Picture:</label>
+                    <InputText id="description" @bind-Value="Dog.pictureUrl" class="form-control" />
+                    <ValidationMessage For="() => Dog.Description" class="text-danger" />
+                </div>
+                <div class="mb-3">
                     <label for="description" class="form-label">Description:</label>
                     <InputText id="description" @bind-Value="Dog.Description" class="form-control" />
                     <ValidationMessage For="() => Dog.Description" class="text-danger" />

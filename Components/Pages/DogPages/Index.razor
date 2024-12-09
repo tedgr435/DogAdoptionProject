@@ -29,7 +29,7 @@
 <QuickGrid Class="table" Items="FilteredDogs" Pagination="pagination">
     <Paginator State="pagination" />
     <TemplateColumn Context="dog">
-        <img src="images/@dog.Description" alt="@dog.Description" style="width:100px; height:100px" />
+        <img src="images/@dog.pictureUrl" alt="@dog.pictureUrl" style="width:100px; height:100px" />
     </TemplateColumn>
     <PropertyColumn Property="dog => dog.Name" Sortable="true" />
     <PropertyColumn Property="dog => dog.Id" />

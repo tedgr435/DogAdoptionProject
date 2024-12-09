@@ -78,7 +78,8 @@ namespace DogAdoptionProject.Data
                 {
                     //Id = 1,
                     Name = "Anne",
-                    Description = "Dog1.jpg",
+                    pictureUrl = "Dog1.jpg",
+                    Description = "",
                     Status = "Available",
                     Type = "Great Dane",
                 },
@@ -86,7 +87,8 @@ namespace DogAdoptionProject.Data
                {
                    //Id = 2,
                    Name = "Ted",
-                   Description = "Dog2.jpg",
+                   pictureUrl = "Dog2.jpg",
+                   Description = "",
                    Status = "Available",
                    Type = "Golden Retriever",
                },
@@ -94,7 +96,8 @@ namespace DogAdoptionProject.Data
                 {
                     //Id = 3,
                     Name = "Max",
-                    Description = "Dog3.jpg",
+                    pictureUrl = "Dog3.jpg",
+                    Description = "",
                     Status = "Available",
                     Type = "Pug",
                 },
@@ -102,7 +105,8 @@ namespace DogAdoptionProject.Data
                  {
                      //Id = 4,
                      Name = "Spot",
-                     Description = "Dog4.jpg",
+                     pictureUrl = "Dog4.jpg",
+                     Description = "",
                      Status = "Available",
                      Type = "Poodle",
                  },
@@ -110,7 +114,8 @@ namespace DogAdoptionProject.Data
                  {
                      //Id = 5,
                      Name = "Fido",
-                     Description = "Dog5.jpg",
+                     pictureUrl = "Dog5.jpg",
+                     Description = "",
                      Status = "Available",
                      Type = "Golden Retriever",
                  },
@@ -118,7 +123,8 @@ namespace DogAdoptionProject.Data
                  {
                      //Id = 6,
                      Name = "Ace",
-                     Description = "Dog6.jpg",
+                     pictureUrl = "Dog6.jpg",
+                     Description = "",
                      Status = "Available",
                      Type = "Great Dane",
                  },
@@ -126,7 +132,8 @@ namespace DogAdoptionProject.Data
                  {
                      //Id = 7,
                      Name = "Minnie",
-                     Description = "Dog7.jpg",
+                     pictureUrl = "Dog7.jpg",
+                     Description = "",
                      Status = "Available",
                      Type = "Golden Retriever",
                  },
@@ -134,7 +141,8 @@ namespace DogAdoptionProject.Data
                  {
                      //Id = 8,
                      Name = "Max",
-                     Description = "Dog8.jpg",
+                     pictureUrl = "Dog8.jpg",
+                     Description = "",
                      Status = "Available",
                      Type = "Pug",
                  });
@@ -156,8 +164,8 @@ namespace DogAdoptionProject.Data
             context.Application.AddRange(
                 new Models.Application
                 {
-                    dogId = 49,
-                    userId = 27,
+                    dogId = 10,
+                    userId = 9,
                     Status = "Approved",
                     House = "Large",
                     Name = "Roger",
@@ -166,8 +174,8 @@ namespace DogAdoptionProject.Data
                 },
                new Models.Application
                {
-                   dogId = 50,
-                   userId = 28,
+                   dogId = 11,
+                   userId = 10,
                    Status = "Pending",
                    House = "Large",
                    Name = "Ales",
@@ -176,8 +184,8 @@ namespace DogAdoptionProject.Data
                },
                 new Models.Application
                 {
-                    dogId = 51,
-                    userId = 29,
+                    dogId = 12,
+                    userId = 11,
                     Status = "Approved",
                     House = "Large",
                     Name = "Mane",
@@ -186,8 +194,8 @@ namespace DogAdoptionProject.Data
                 },
                  new Models.Application
                  {
-                     dogId = 51,
-                     userId = 30,
+                     dogId = 12,
+                     userId = 12,
                      Status = "Rejected",
                      House = "Large",
                      Name = "Richard",
