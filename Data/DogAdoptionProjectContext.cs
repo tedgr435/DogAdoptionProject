@@ -15,5 +15,7 @@ namespace DogAdoptionProject.Data
         }
 
         public DbSet<DogAdoptionProject.Models.Application> Application { get; set; } = default!;
+        public DbSet<DogAdoptionProject.Models.User> User { get; set; } = default!;
+        public DbSet<DogAdoptionProject.Models.Dog> Dog { get; set; } = default!;
     }
 }
