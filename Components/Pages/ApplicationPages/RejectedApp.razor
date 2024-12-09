@@ -1,5 +1,87 @@
-﻿<h3>RejectedApp</h3>
+﻿@page "/rejapplications"
+
+
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using DogAdoptionProject.Models
+@using DogAdoptionProject.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<DogAdoptionProject.Data.DogAdoptionProjectContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Rejected Applications</h1>
+
+
+<QuickGrid Class="table" Items="myList.AsQueryable()">
+    <PropertyColumn Property="application => application.Id" />
+    <PropertyColumn Property="application => application.dogId" />
+    <PropertyColumn Property="application => application.Name" />
+    <PropertyColumn Property="application => application.userId" />
+    <PropertyColumn Property="application => application.Username" />
+
+</QuickGrid>
+
+<div>
+    <a href="/home1">Back to Home</a>
+</div>
 
 @code {
 
+    //Create MyApplication struct, to work with a new object/record
+
+    struct MyApplication
+    {
+        public int Id { get; set; }
+        public int? dogId { get; set; }
+        public string? Name { get; set; }
+        public int? userId { get; set; }
+        public string? Username { get; set; }
+
+    }
+    private DogAdoptionProjectContext context = default!;
+
+    private List<MyApplication> myList;  //List of MyApplication objects
+
+    protected override void OnInitialized()
+    {
+        myList = new List<MyApplication>();
+
+        context = DbFactory.CreateDbContext();
+
+        //LINQ query for 3 tables
+
+        var result = from item in context.Application
+                     from item2 in context.Dog
+                     from item3 in context.User
+                     where item.userId == item3.Id
+                     where item.dogId == item2.Id
+                     where item.Status == "Rejected"
+                     select new
+                     {
+                         item.Id,
+                         item.dogId,
+                         item2.Name,
+                         item.userId,
+                         item3.Username
+                     };
+
+
+        //Create a new MyApplication, assign data from the result object to the //tempApplication object. Add MyApplication object to myList.
+
+        foreach (var x in result)
+        {
+            MyApplication tempApplication = new MyApplication();
+
+            tempApplication.Id = x.Id;
+            tempApplication.dogId = x.dogId;
+            tempApplication.Name = x.Name;
+            tempApplication.userId = x.userId;
+            tempApplication.Username = x.Username;
+
+            myList.Add(tempApplication);
+        }
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
 }
