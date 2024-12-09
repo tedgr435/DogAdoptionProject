@@ -17,13 +17,13 @@
 
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="#">MyDogAdoption</a>
+            <a class="navbar-brand" href="/home1">MyDogAdoption</a>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
 
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home1">Home</a>
 
                 </li>
 
@@ -35,44 +35,45 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="/">Logged In</a>
+                    <a class="nav-link" href="/home1">Logged In</a>
 
                 </li>
 
-                <li class="nav-item dropdown">
+                
 
-                    <a class="nav-link dropdown-toggle" href="#" id="topicsDropdown"
-                       role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
+                
 
-                        Topics
+            </ul>
 
-                    </a>
 
-                    <ul class="dropdown-menu" aria-labelledby="topicsDropdown">
+            <ul class="nav navbar-nav me-auto">
 
-                        <li><a class="dropdown-item" href="/users">User</a></li>
 
-                        <li><a class="dropdown-item" href="/dogs">Dogs</a></li>
+                <li class="nav-item">
 
-                        <li><a class="dropdown-item" href="/applications/create">Apply</a></li>
+                    <a class="nav-link" href="/users">User</a>
 
-                        <li>
+                </li>
 
-                            <hr class="dropdown-divider">
+                <li class="nav-item">
 
-                        </li>
+                    <a class="nav-link" href="/dogs">Dogs</a>
 
-                        <li><a class="dropdown-item" href="/allapplications">Approved Applications</a></li>
+                </li>
 
-                        <li><a class="dropdown-item" href="/applications">Edit Application</a></li>
+                <li class="nav-item">
 
-                    </ul>
+                    <a class="nav-link" href="/applications/create">Apply</a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="/allapplications">Approved Applications</a>
 
                 </li>
 
             </ul>
-
 
             <ul class="nav navbar-nav me-auto">
 
@@ -90,55 +91,62 @@
 
     </nav>
 
-    <div id="mycarousel" class="carousel slide" data-bs-ride="carousel"> </div>
-    <div id="mycarousel" class="carousel slide" data-bs-ride="carousel"> </div>
 
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-
-
-    <div class="carousel-inner">
-
-
-        <div class="carousel-inner">
-
-            <div class="carousel-item active">
-
-                <img src="/images/Dog2.jpg"
-                     alt="slide1" class="d-block w-100">
-
-            </div>
-
-            <div class="carousel-item">
-
-                <img src="/images/Dog3.jpg"
-                     alt="slide2" class="d-block w-100">
-
-            </div>
-
-            <div class="carousel-item">
-
-                <img src="/images/Dog4.jpg"
-                     alt="slide3" class="d-block w-100">
-
-            </div>
-
+    <div id="@carouselName" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="true" data-bs-interval="2000" data-bs-pause="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#mycarousel" data-bs-slide="prev">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/Dog1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Dog2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Dog3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Dog4.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Dog5.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Dog6.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Dog7.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/Dog8.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#mycarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-
-
-
     </div>
+
+    <script type="text/javascript">
+        var carouselName = "@carouselName";
+        startCarousel(carouselName);
+    </script>
+
+    @code {
+        const string carouselName = "carouselExampleIndicators";
+    }
 
 
 </body>
