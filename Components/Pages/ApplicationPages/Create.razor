@@ -26,11 +26,6 @@
                 <ValidationMessage For="() => Application.userId" class="text-danger" />
             </div>
             <div class="mb-3">
-                <label for="status" class="form-label">Status:</label>
-                <InputText id="status" @bind-Value="Application.Status" class="form-control" />
-                <ValidationMessage For="() => Application.Status" class="text-danger" />
-            </div>
-            <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
                 <InputText id="name" @bind-Value="Application.Name" class="form-control" />
                 <ValidationMessage For="() => Application.Name" class="text-danger" />
@@ -66,6 +61,7 @@
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddApplication()
     {
+        Application.Status = "Pending";
         using var context = DbFactory.CreateDbContext();
         context.Application.Add(Application);
         await context.SaveChangesAsync();
