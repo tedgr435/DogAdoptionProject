@@ -1,4 +1,4 @@
-﻿@page "/dogs"
+﻿@page "/dogs/view"
 @rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
@@ -22,9 +22,7 @@
     </button>
 
 </form>
-<p>
-    <a href="dogs/create">Create New</a>
-</p>
+
 
 <QuickGrid Class="table" Items="FilteredDogs" Pagination="pagination">
     <Paginator State="pagination" />
@@ -32,19 +30,13 @@
         <img src="images/@dog.Description" alt="@dog.Description" style="width:100px; height:100px" />
     </TemplateColumn>
     <PropertyColumn Property="dog => dog.Name" Sortable="true" />
-    <PropertyColumn Property="dog => dog.Description" />
     <PropertyColumn Property="dog => dog.Status" />
     <PropertyColumn Property="dog => dog.Type" />
 
-    <TemplateColumn Context="dog">
-        <a href="@($"dogs/edit?id={dog.Id}")">Edit</a> |
-        <a href="@($"dogs/details?id={dog.Id}")">Details</a> |
-        <a href="@($"dogs/delete?id={dog.Id}")">Delete</a>
-    </TemplateColumn>
 </QuickGrid>
 
 <div>
-    <a href="/home2">Back to Home</a>
+    <a href="/home1">Back to Home</a>
 </div>
 
 @code {

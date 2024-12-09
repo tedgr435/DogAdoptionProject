@@ -1,4 +1,4 @@
-﻿@page "/users"
+﻿@page "/users/view"
 @rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
@@ -22,30 +22,20 @@
     </button>
 
 </form>
-<p>
-    <a href="users/create">Create New</a>
-</p>
 
 <QuickGrid Class="table" Items="FilteredUsers" Pagination="pagination">
     <Paginator State="pagination" />
     <PropertyColumn Property="user => user.Username" Sortable="true" />
-    <PropertyColumn Property="user => user.Password" />
-    <PropertyColumn Property="user => user.Email" />
     <PropertyColumn Property="user => user.Level" />
     <PropertyColumn Property="user => user.applicationNumber" />
     <PropertyColumn Property="user => user.dogNumber" />
     <PropertyColumn Property="user => user.currentAppId" />
     <PropertyColumn Property="user => user.currentDogId" />
 
-    <TemplateColumn Context="user">
-        <a href="@($"users/edit?id={user.Id}")">Edit</a> |
-        <a href="@($"users/details?id={user.Id}")">Details</a> |
-        <a href="@($"users/delete?id={user.Id}")">Delete</a>
-    </TemplateColumn>
 </QuickGrid>
 
 <div>
-    <a href="/home2">Back to Home</a>
+    <a href="/home1">Back to Home</a>
 </div>
 
 @code {

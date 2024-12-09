@@ -1,4 +1,4 @@
-﻿@page "/allapplications"
+﻿@page "/rejapplications"
 
 
 @using Microsoft.EntityFrameworkCore
@@ -10,7 +10,7 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Approved Applications</h1>
+<h1>Rejected Applications</h1>
 
 
 <QuickGrid Class="table" Items="myList.AsQueryable()">
@@ -22,15 +22,12 @@
 
 </QuickGrid>
 
-
-
 <div>
     <a href="/home1">Back to Home</a>
 </div>
 
 @code {
 
-    
     //Create MyApplication struct, to work with a new object/record
 
     struct MyApplication
@@ -57,10 +54,17 @@
         var result = from item in context.Application
                      from item2 in context.Dog
                      from item3 in context.User
-                     where item.userId == item3.Id && item.dogId == item2.Id
-                     //where item.Status == "Approved"
-                     select new { item.Id, item.dogId, item2.Name, item.userId, 
-                        item3.dogNumber  };
+                     where item.userId == item3.Id
+                     where item.dogId == item2.Id
+                     where item.Status == "Rejected"
+                     select new
+                     {
+                         item.Id,
+                         item.dogId,
+                         item2.Name,
+                         item.userId,
+                         item3.dogNumber
+                     };
 
 
         //Create a new MyApplication, assign data from the result object to the //tempApplication object. Add MyApplication object to myList.
