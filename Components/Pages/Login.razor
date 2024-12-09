@@ -1,5 +1,76 @@
-﻿<h3>Login</h3>
+﻿@page "/login"
+@using Microsoft.EntityFrameworkCore
+@using DogAdoptionProject.Models
+@using DogAdoptionProject.Data
+@inject IDbContextFactory<DogAdoptionProject.Data.DogAdoptionProjectContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Log In</PageTitle>
+
+<h1>Log In</h1>
+
+<h2>User</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="User" OnValidSubmit="checkUser" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <InputText id="username" @bind-Value="User.Username" class="form-control" />
+                <ValidationMessage For="() => User.Username" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <InputText id="password" @bind-Value="User.Password" class="form-control" />
+                <ValidationMessage For="() => User.Password" class="text-danger" />
+            </div>
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/">Back to Home</a>
+</div>
 
 @code {
+    private DogAdoptionProjectContext context = default!;
+    [SupplyParameterFromForm]
+    private User User { get; set; } = new();
 
+    public List<User> myUsers;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+        myUsers = context.User.ToList();
+        User.Email = "123@abc.com";
+    }
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddUser()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.User.Add(User);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/home1");
+    }
+
+    private async Task checkUser()
+    {
+        foreach (var item in myUsers)
+        {
+            if (User.Username == item.Username && User.Password == item.Password)
+            {
+                using var context = DbFactory.CreateDbContext();
+                //context.User.Add(User);
+                await context.SaveChangesAsync();
+                NavigationManager.NavigateTo("/home1");
+            }
+        }
+
+    }
 }
+
