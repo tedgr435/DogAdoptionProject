@@ -1,4 +1,4 @@
-﻿@page "/applications"
+﻿@page "/applications/view"
 @rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
@@ -23,9 +23,6 @@
 
 </form>
 
-<p>
-    <a href="applications/create">Create New</a>
-</p>
 
 
 <QuickGrid Class="table" Items="FilteredApplication" Pagination="pagination">
@@ -38,15 +35,10 @@
     <PropertyColumn Property="application => application.House" />
     <PropertyColumn Property="application => application.Dependents" />
 
-    <TemplateColumn Context="application">
-        <a href="@($"applications/edit?id={application.Id}")">Edit</a> |
-        <a href="@($"applications/details?id={application.Id}")">Details</a> |
-        <a href="@($"applications/delete?id={application.Id}")">Delete</a>
-    </TemplateColumn>
 </QuickGrid>
 
 <div>
-    <a href="/home2">Back to Home</a>
+    <a href="/home1">Back to Home</a>
 </div>
 
 @code {
