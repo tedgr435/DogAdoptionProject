@@ -6,7 +6,7 @@
 
 <PageTitle>Create</PageTitle>
 
-<h1>Create</h1>
+<h1>Create Account</h1>
 
 <h2>User</h2>
 <hr />
@@ -54,6 +54,6 @@
         using var context = DbFactory.CreateDbContext();
         context.User.Add(User);
         await context.SaveChangesAsync();
-        NavigationManager.NavigateTo("/users");
+        NavigationManager.NavigateTo("/login");
     }
 }

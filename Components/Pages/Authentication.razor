@@ -66,6 +66,7 @@
             {
                 using var context = DbFactory.CreateDbContext();
                 //context.User.Add(User);
+                Home2.username = User.Username;
                 await context.SaveChangesAsync();
                 NavigationManager.NavigateTo("/home2");
             }
