@@ -25,7 +25,6 @@
                 <InputNumber id="userid" @bind-Value="Application.userId" class="form-control" />
                 <ValidationMessage For="() => Application.userId" class="text-danger" />
             </div>
-            
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
                 <InputText id="name" @bind-Value="Application.Name" class="form-control" />
@@ -41,6 +40,16 @@
                 <label for="dependents" class="form-label">Dependents:</label>
                 <InputText id="dependents" @bind-Value="Application.Dependents" class="form-control" />
                 <ValidationMessage For="() => Application.Dependents" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <InputText id="description" @bind-Value="Application.Description" class="form-control" />
+                <ValidationMessage For="() => Application.Description" class="text-danger" />
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status:</label>
+                <InputText id="status" @bind-Value="Application.Status" class="form-control" />
+                <ValidationMessage For="() => Application.Status" class="text-danger" />
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>

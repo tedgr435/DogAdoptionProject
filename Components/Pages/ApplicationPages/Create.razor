@@ -45,6 +45,11 @@
                 <InputText id="dependents" @bind-Value="Application.Dependents" class="form-control" />
                 <ValidationMessage For="() => Application.Dependents" class="text-danger" />
             </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status:</label>
+                <InputText id="status" @bind-Value="Application.Status" class="form-control" />
+                <ValidationMessage For="() => Application.Status" class="text-danger" />
+            </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>
