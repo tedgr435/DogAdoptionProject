@@ -23,8 +23,6 @@ namespace DogAdoptionProject.Data
                 return;
             }
 
-
-
             context.User.AddRange(
                 new User
                 {

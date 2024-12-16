@@ -31,7 +31,8 @@
     <TemplateColumn Context="dog">
         <img src="images/@dog.pictureUrl" alt="@dog.pictureUrl" style="width:100px; height:100px" />
     </TemplateColumn>
-    <PropertyColumn Property="dog => dog.Name" Sortable="true" />
+    <PropertyColumn Property="dog => dog.Id" Sortable="true" />
+    <PropertyColumn Property="dog => dog.Name" />
     <PropertyColumn Property="dog => dog.Status" />
     <PropertyColumn Property="dog => dog.Type" />
 

@@ -1,4 +1,4 @@
-﻿@page "/allapplications"
+﻿@page "/allapplications1"
 
 
 @using Microsoft.EntityFrameworkCore
@@ -18,7 +18,7 @@
     <PropertyColumn Property="application => application.dogId" />
     <PropertyColumn Property="application => application.Name" />
     <PropertyColumn Property="application => application.userId" />
-    <PropertyColumn Property="application => application.dogNumber" />
+    <PropertyColumn Property="application => application.username" />
 
 </QuickGrid>
 
@@ -39,7 +39,7 @@
         public int? dogId { get; set; }
         public string? Name { get; set; }
         public int? userId { get; set; }
-        public int? dogNumber { get; set; }
+        public string? username { get; set; }
 
     }
     private DogAdoptionProjectContext context = default!;
@@ -60,7 +60,7 @@
                      where item.userId == item3.Id && item.dogId == item2.Id
                      where item.Status == "Approved"
                      select new { item.Id, item.dogId, item2.Name, item.userId, 
-                         item3.dogNumber  };
+                         item3.Username  };
 
         
         //Create a new MyApplication, assign data from the result object to the //tempApplication object. Add MyApplication object to myList.
@@ -73,7 +73,7 @@
             tempApplication.dogId = x.dogId;
             tempApplication.Name = x.Name;
             tempApplication.userId = x.userId;
-            tempApplication.dogNumber = x.dogNumber;
+            tempApplication.username = x.Username;
 
             myList.Add(tempApplication);
         }
