@@ -15,7 +15,7 @@ namespace DogAdoptionProject.Models
         [Required]
         [StringLength(60, MinimumLength = 3)]
         public string? Email { get; set; }
-
+        //
         public int? Level { get; set; } = 0;
 
 
